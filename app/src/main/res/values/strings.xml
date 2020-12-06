@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Weight Manager</string>
+
+    <string name="title_fragment_top">トップページ</string>
+    <string name="title_fragment_weight_input">体重入力</string>
+    <string name="title_fragment_history">履歴</string>
+    <string name="title_fragment_profile">プロフィール</string>
+    <string name="title_fragment_setting">設定</string>
+
+    <string name="title_col_name">ニックネーム</string>
+    <string name="title_col_height">身長（cm）</string>
+    <string name="title_col_weight">体重（kg）</string>
+    <string name="title_col_target_weight">目標体重（kg）</string>
+    <string name="title_col_date">日付</string>
+
+    <string name="error_message_is_empty">必要な情報を入力してください</string>
+    <string name="error_message_is_decimal">正しい数値を入力してください</string>
+</resources>

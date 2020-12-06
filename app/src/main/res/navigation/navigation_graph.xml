@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_graph"
+    app:startDestination="@id/topFragment">
+
+    <fragment
+        android:id="@+id/topFragment"
+        android:name="com.example.weightmanager.fragments.TopFragment"
+        android:label="@string/app_name"
+        tools:layout="@layout/fragment_top" >
+        <action
+            android:id="@+id/action_topFragment_to_weightInputFragment"
+            app:destination="@id/weightInputFragment" >
+        </action>
+        <action
+            android:id="@+id/action_topFragment_to_historyFragment"
+            app:destination="@id/historyFragment" />
+        <action
+            android:id="@+id/action_topFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+        <action
+            android:id="@+id/action_topFragment_to_settingFragment"
+            app:destination="@id/settingFragment" />
+        <action
+            android:id="@+id/action_topFragment_to_userInputDialogFragment"
+            app:destination="@+id/userInputDialogFragment"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/weightInputFragment"
+        android:name="com.example.weightmanager.fragments.WeightInputFragment"
+        android:label="@string/title_fragment_weight_input"
+        tools:layout="@layout/fragment_weight_input">
+        <argument
+            android:name="date"
+            app:argType="string"
+            app:nullable="true" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/historyFragment"
+        android:name="com.example.weightmanager.fragments.HistoryFragment"
+        android:label="@string/title_fragment_history"
+        tools:layout="@layout/fragment_history" >
+        <action
+            android:id="@+id/action_historyFragment_to_weightInputFragment"
+            app:destination="@id/weightInputFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.example.weightmanager.fragments.ProfileFragment"
+        android:label="@string/title_fragment_profile"
+        tools:layout="@layout/fragment_profile" />
+
+    <fragment
+        android:id="@+id/settingFragment"
+        android:name="com.example.weightmanager.fragments.SettingFragment"
+        android:label="@string/title_fragment_setting"
+        tools:layout="@layout/fragment_setting" />
+
+    <dialog
+        android:id="@+id/userInputDialogFragment"
+        android:name="com.example.weightmanager.fragments.UserInputDialogFragment">
+    </dialog>
+
+</navigation>
