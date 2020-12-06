@@ -36,8 +36,8 @@ public class TopFragment extends Fragment implements View.OnClickListener{
         if(c.getCount() == 0){
             Navigation.findNavController(view).navigate(R.id.action_topFragment_to_userInputDialogFragment);
         }
-        dbAdapter.closeDB();
         c.close();
+        dbAdapter.closeDB();
     }
 
     @Override
@@ -59,22 +59,3 @@ public class TopFragment extends Fragment implements View.OnClickListener{
         }
     }
 }
-
-/*class MyClickAdapter implements OnClickListener (
-        public void onClick(View v){
-            switch(v.getId()){
-                case R.id.button1:
-                    処理1
-                    break;
-                case R.id.button2:
-                    処理2
-                    break;
-            }
-        }
-}*/
-
-/*
-MyClickAdapter myClickListener = new MyClickAdapter;
-Button btn1 = (Button) findViewById( R.id.button1 );
-btn1.setOnClickListener( myClickListener );
-*/
