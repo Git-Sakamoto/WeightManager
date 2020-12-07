@@ -3,6 +3,7 @@ package com.example.weightmanager.fragments;
 
 import android.app.Dialog;
 import android.content.DialogInterface;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.InputFilter;
 import android.view.LayoutInflater;
@@ -16,7 +17,14 @@ import androidx.fragment.app.DialogFragment;
 import com.example.weightmanager.DBAdapter;
 import com.example.weightmanager.DecimalDigitsInputFilter;
 import com.example.weightmanager.EditTextManager;
+import com.example.weightmanager.NotificationController;
 import com.example.weightmanager.R;
+
+import static android.content.Context.MODE_PRIVATE;
+import static com.example.weightmanager.enums.PrefEnum.FILE_NAME;
+import static com.example.weightmanager.enums.PrefEnum.HOUR_OF_DAY;
+import static com.example.weightmanager.enums.PrefEnum.MINUTE;
+import static com.example.weightmanager.enums.PrefEnum.NOTIFICATION_RUN;
 
 
 public class UserInputDialogFragment extends DialogFragment {
@@ -59,6 +67,20 @@ public class UserInputDialogFragment extends DialogFragment {
                     dbAdapter.insertUser(name,height,weight,targetWeight);
                     dbAdapter.closeDB();
                     alertDialog.dismiss();
+
+                    SharedPreferences pref = getActivity().getSharedPreferences(FILE_NAME.getString(), MODE_PRIVATE);
+                    SharedPreferences.Editor editor = pref.edit();
+                    int hourOfDay = 6;
+                    int minute = 0;
+                    editor.putInt(HOUR_OF_DAY.getString(),hourOfDay);
+                    editor.putInt(MINUTE.getString(),minute);
+                    editor.putBoolean(NOTIFICATION_RUN.getString(),true);
+                    editor.commit();
+
+                    NotificationController notificationController = new NotificationController();
+                    if(notificationController.isWorkingPending(getActivity())==false){
+                        notificationController.startAlarm(getActivity(),false);
+                    }
                 }
             }
         });

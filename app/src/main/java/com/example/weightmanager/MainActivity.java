@@ -24,25 +24,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        pref = getSharedPreferences(FILE_NAME.getString(), MODE_PRIVATE);
-        String firstStart = pref.getString(FIRST_START.getString(),null);
-        if(firstStart==null){
-            editor = pref.edit();
-            firstStart = "started";
-            editor.putString(FIRST_START.getString(),firstStart);
-
-            int hourOfDay = 6;
-            int minute = 0;
-            editor.putInt(HOUR_OF_DAY.getString(),hourOfDay);
-            editor.putInt(MINUTE.getString(),minute);
-            editor.putBoolean(NOTIFICATION_RUN.getString(),true);
-            editor.commit();
-        }
-        NotificationController notificationController = new NotificationController();
-        if(notificationController.isWorkingPending(this)==false){
-            notificationController.startAlarm(this,false);
-        }
-
         setContentView(R.layout.activity_main);
         getSupportActionBar().hide();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
