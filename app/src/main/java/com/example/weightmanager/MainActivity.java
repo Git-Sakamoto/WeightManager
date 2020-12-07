@@ -15,12 +15,7 @@ import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 
-import static com.example.weightmanager.enums.PrefEnum.*;
-
 public class MainActivity extends AppCompatActivity {
-    SharedPreferences pref;
-    SharedPreferences.Editor editor;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
